@@ -13,6 +13,19 @@ PATTERNS = [
     (r"(?i)\b(password|passwd|secret|token|api[_-]?key)\b\s*[=:]\s*[\"'][^\"']{8,}[\"']", "hard-coded credential assignment"),
 ]
 
+def string_values(value):
+    """Yield every string in the payload so patterns match raw text,
+    not JSON-escaped text (json.dumps turns quotes into \\", which hides
+    quoted-credential patterns from the regex)."""
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for v in value.values():
+            yield from string_values(v)
+    elif isinstance(value, list):
+        for v in value:
+            yield from string_values(v)
+
 def main():
     try:
         payload = json.load(sys.stdin)
@@ -20,7 +33,7 @@ def main():
         print("invalid hook input", file=sys.stderr)
         sys.exit(2)
     tool_input = payload.get("tool_input", {}) or {}
-    blob = json.dumps(tool_input)
+    blob = "\n".join(string_values(tool_input))
     for pattern, label in PATTERNS:
         if re.search(pattern, blob):
             out = {
