@@ -1,0 +1,8 @@
+{
+  "session_id": "test-session-net-allow",
+  "cwd": "PLACEHOLDER_CWD",
+  "tool_name": "Bash",
+  "tool_input": {
+    "command": "curl -sS https://api.internal.example.com/health"
+  }
+}

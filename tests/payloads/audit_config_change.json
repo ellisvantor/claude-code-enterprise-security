@@ -1,0 +1,6 @@
+{
+  "session_id": "test-session-audit",
+  "source": "settings",
+  "file_path": ".claude/settings.json",
+  "cwd": "PLACEHOLDER_CWD"
+}

