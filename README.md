@@ -14,6 +14,13 @@ Get the book: https://www.securingclaudecode.com
 | `telemetry/managed-otel-baseline.json` | Managed-settings `env` block that pins the OpenTelemetry log exporter to your collector |
 | `checklists/policy-verification.md` | Three-step loop to prove a managed policy is in force |
 
+## Run the tests
+
+```bash
+pip install pytest
+pytest tests
+```
+
 ## Using the hooks
 
 Each hook reads the hook JSON on stdin and exits with a decision. Wire one up in settings, for example:
