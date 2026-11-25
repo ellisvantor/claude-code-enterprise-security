@@ -13,6 +13,7 @@ Get the book: https://www.securingclaudecode.com
 | `hooks/deny_network_hosts.py` | PreToolUse hook (`Bash`): denies network commands to hosts not in `.claude/network-allowlist.json` |
 | `telemetry/managed-otel-baseline.json` | Managed-settings `env` block that pins the OpenTelemetry log exporter to your collector |
 | `checklists/policy-verification.md` | Three-step loop to prove a managed policy is in force |
+| `detections/README.md` | Sample SIEM detections (SPL + KQL) for mode escalation, policy refusals, and plugin provenance |
 
 ## Run the tests
 
